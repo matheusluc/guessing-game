@@ -10,23 +10,18 @@ verificationDigit1 = 0
 verificationDigit2 = 0
 digit1 = 0
 
-
-
-
 for i in insertCpf:
 
     i = int(i)
 
-    fistVerification = i * multiplicatioFirst
+    firstVerification = i * multiplicatioFirst
     multiplicatioFirst -= 1
     firstResult += firstVerification
-
 
     if multiplicatioFirst == 2:
         verificationDigit1 = 11 - (firstResult % 11)
 
         if verificationDigit1 > 9:
-
 
             for a in insertCpf:
 
@@ -35,19 +30,12 @@ for i in insertCpf:
                 multiplicatioLast -= 1
                 lastResult += lastVerification
 
+                if multiplicatioLast == 3:
+                    lastResult += (digit1 * 2)
+                    verificationDigit2 = 11 - (lastResult % 11)
 
-
-                if multiplicatioFirst == 3:
-                    #lastResult += (digit1 * 2)
-
-                    print(lastResult)
-
-
+                    print()
+                    break
 
         else:
             print("xablau")
-
-
-
-
-
